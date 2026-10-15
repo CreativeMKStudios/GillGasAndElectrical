@@ -1,0 +1,52 @@
+---
+import Base from "../../layouts/Base.astro";
+import Cta from "../../components/Cta.astro";
+import { areas, areaGroups } from "../../data/areas";
+import { site } from "../../data/site";
+---
+
+<Base
+  title="Areas Covered | Gas and Electrical Work in Bedfordshire"
+  description="Gill Gas and Electrical Ltd is based in Shortstown, Bedford, and covers Bedfordshire. See the towns, from Kempston and Wixams to Ampthill and Biggleswade."
+  path="/areas"
+>
+  <main id="main">
+    <header class="page-hero">
+      <div class="wrap">
+        <p class="crumbs"><a href="/">Home</a> <span>/</span> Areas</p>
+        <h1>Areas we cover</h1>
+        <p class="lede">
+          The yard is at {site.street}, {site.locality}, {site.postcode}. The company says it works across Bedfordshire.
+          Pages below are the main towns. The lists are the rest of the county. Call with the postcode and we will say if we can take the day.
+        </p>
+      </div>
+    </header>
+    <section class="section">
+      <div class="wrap grid-2">
+        {areas.map((area) => (
+          <article class="card">
+            <h2>{area.name}</h2>
+            <p>{area.lede}</p>
+            <a class="more" href={`/areas/${area.slug}`}>Gas and electrical work in {area.name}</a>
+          </article>
+        ))}
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="wrap">
+        <h2>The wider county</h2>
+        <p class="subhead">These towns do not each have a page. Naming them here is enough. A thin page for every village would not help you, and it would not help Google.</p>
+        <div class="grid-2" style="margin-top: 1rem;">
+          {areaGroups.map((group) => (
+            <article class="card">
+              <h3>{group.title}</h3>
+              <p>{group.note}</p>
+              <p>{group.towns.join(", ")}.</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+    <Cta title="Send the postcode" text="We will tell you if the job is inside the area we can cover this week." />
+  </main>
+</Base>

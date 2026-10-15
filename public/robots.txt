@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gillgasandelectrical.co.uk/sitemap-index.xml

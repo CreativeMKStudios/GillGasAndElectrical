@@ -1,0 +1,95 @@
+---
+import Base from "../layouts/Base.astro";
+import { site, hours } from "../data/site";
+import { services } from "../data/services";
+
+const schema = {
+  "@type": "ContactPage",
+  name: "Contact Gill Gas and Electrical Ltd",
+  url: `${site.url}/contact`,
+  mainEntity: { "@id": `${site.url}/#business` },
+};
+---
+
+<Base
+  title="Contact Gill Gas and Electrical | Bedford MK42"
+  description="Call 07462 696665 or email gillgaselectrical@gmail.com. Gill Gas and Electrical Ltd, 4 Aviation Way, Shortstown, Bedford, MK42 0HU."
+  path="/contact"
+  schema={schema}
+  showCallBar={false}
+>
+  <main id="main">
+    <header class="page-hero">
+      <div class="wrap">
+        <p class="crumbs"><a href="/">Home</a> <span>/</span> Contact</p>
+        <h1>Contact us</h1>
+        <p class="lede">Call during opening hours, or send a message. The form opens your email app. We do not store the message on this website.</p>
+      </div>
+    </header>
+    <section class="section">
+      <div class="wrap grid-2">
+        <form data-quote-form action={`mailto:${site.email}`} method="post" enctype="text/plain">
+          <h2>Ask for a quote</h2>
+          <label>Name
+            <input name="name" autocomplete="name" required />
+          </label>
+          <label>Phone
+            <input name="phone" type="tel" autocomplete="tel" required />
+          </label>
+          <label>Email
+            <input name="email" type="email" autocomplete="email" required />
+          </label>
+          <label>Postcode
+            <input name="postcode" autocomplete="postal-code" required />
+          </label>
+          <label>What do you need?
+            <select name="service" required>
+              <option value="">Choose a job</option>
+              {services.map((service) => <option value={service.name}>{service.name}</option>)}
+              <option value="Something else">Something else</option>
+            </select>
+          </label>
+          <label>What is going on?
+            <textarea name="message" required placeholder="Boiler make, what has failed, or the room you want fitted."></textarea>
+          </label>
+          <label class="consent">
+            <input type="checkbox" name="consent" required />
+            <span>I am happy for these details to be emailed to {site.name} so they can reply about this job. See the <a href="/privacy">privacy page</a>.</span>
+          </label>
+          <p class="hp" aria-hidden="true">
+            <label>Website <input name="website" tabindex="-1" autocomplete="off" /></label>
+          </p>
+          <button class="btn" type="submit">Email this enquiry</button>
+          <p data-sent hidden>Your email app should open with the message filled in. If it does not, email {site.email} yourself.</p>
+          <noscript>
+            <p>This form uses your email app. You can also write straight to {site.email}.</p>
+          </noscript>
+        </form>
+        <div>
+          <h2>Phone and email</h2>
+          <p><a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a></p>
+          <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+          <h2>Address</h2>
+          <p>
+            {site.legalName}<br />
+            {site.street}<br />
+            {site.locality}<br />
+            {site.town}<br />
+            {site.postcode}
+          </p>
+          <p>This is the registered office. Call before you visit. It is not a trade counter.</p>
+          <p><a href={site.maps}>Open the Google map</a></p>
+          <h2>Hours</h2>
+          <table class="hours">
+            <tbody>
+              {hours.map((slot) => (
+                <tr><th scope="row">{slot.day}</th><td>{slot.label}</td></tr>
+              ))}
+            </tbody>
+          </table>
+          <p>If you smell gas, call {site.gasEmergency}. Do not email and wait.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>

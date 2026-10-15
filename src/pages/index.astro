@@ -1,0 +1,153 @@
+---
+import Base from "../layouts/Base.astro";
+import Cta from "../components/Cta.astro";
+import FaqList from "../components/FaqList.astro";
+import ReviewCard from "../components/ReviewCard.astro";
+import { site, photos } from "../data/site";
+import { services } from "../data/services";
+import { areas } from "../data/areas";
+import { googleReviews, homeFaqs } from "../data/reviews";
+
+const featured = googleReviews.filter((review) => review.featured).slice(0, 3);
+const previewIds = ["g01", "g08", "g03", "w11", "g06", "w26"];
+const preview = previewIds.map((id) => photos.find((photo) => photo.id === id)).filter((photo) => photo !== undefined);
+const schema = {
+  "@type": "FAQPage",
+  mainEntity: homeFaqs.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+---
+
+<Base
+  title="Gas Engineer and Electrician in Bedford | Gill Gas and Electrical"
+  description="Boilers, heating, bathrooms and electrics in Bedford and Bedfordshire. Gill Gas and Electrical Ltd, Shortstown, MK42. 4.9 on Google from 19 reviews. Call 07462 696665."
+  path="/"
+  preloadImage="/media/hero.webp"
+  schema={schema}
+>
+  <main id="main">
+    <section class="hero" style="background-image: url('/media/hero.webp')">
+      <div class="wrap hero-inner">
+        <p class="eyebrow">Bedford and Bedfordshire · Company no. {site.companyNumber}</p>
+        <h1>Heating and power <span>done properly</span></h1>
+        <p class="lede">
+          Boilers, central heating, bathrooms and electrics from a Shortstown company.
+          Domestic and commercial work. A free quote before anything is booked.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="/contact">Get a free quote</a>
+          <a class="btn btn-ghost" href={`tel:${site.phoneTel}`}>Call {site.phoneDisplay}</a>
+        </div>
+        <div class="stats">
+          <p><strong>{site.googleRating}</strong><span>Google rating</span></p>
+          <p><strong>{site.googleReviewCount}</strong><span>Google reviews</span></p>
+          <p><strong>Mon–Sat</strong><span>Open for calls</span></p>
+          <p><strong>MK42</strong><span>Based in Shortstown</span></p>
+        </div>
+        <a class="scroll-cue" href="#services">Scroll</a>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="wrap">
+        <p class="kicker">Our services</p>
+        <h2>Work we take on</h2>
+        <p class="subhead">Gas, heating, bathrooms and electrics. If the job is not on this list, ask. The company says no job is too big or too small.</p>
+        <div class="grid-4" style="margin-top: 1.4rem;">
+          {services.map((service) => (
+            <article class="card">
+              <h3>{service.name}</h3>
+              <p>{service.short}</p>
+              <a class="more" href={`/services/${service.slug}`}>See this service</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="wrap grid-2">
+        <div>
+          <p class="kicker">About the company</p>
+          <h2>A Bedford firm, on the tools</h2>
+          <p>
+            Gill Gas and Electrical Ltd is registered at 4 Aviation Way, Shortstown. The director is {site.director}.
+            The company was incorporated on {site.incorporated}. Until {site.previousNameUntil} it was called {site.previousName}.
+          </p>
+          <p>
+            The company says the engineer has more than 12 years in the trade, and that gas work is done by a Gas Safe registered engineer.
+            Electrical work is described as NAPIT-approved. Ask to see the cards. You can also check the public registers.
+          </p>
+          <p>
+            Heat pump work is listed too. The business appears on the Renewable Energy Consumer Code member list under this name and postcode.
+          </p>
+          <a class="btn" href="/about">About us</a>
+        </div>
+        <figure class="split-photo">
+          <img src="/media/google/g08.webp" width="1200" height="1600" alt="Vaillant boiler, cylinder and underfloor manifold from the Google profile" />
+        </figure>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <p class="kicker">Reviews</p>
+        <h2>What customers wrote</h2>
+        <p class="subhead">
+          Google shows {site.googleRating} from {site.googleReviewCount} reviews.
+          These three are on the public profile. The reviews page has the full quotes and the owner’s replies.
+        </p>
+        <div class="grid-3" style="margin-top: 1.2rem;">
+          {featured.map((review) => <ReviewCard review={review} />)}
+        </div>
+        <p style="margin-top: 1.2rem;"><a class="btn btn-ghost" href="/reviews">All reviews</a> <a class="btn btn-ghost" href={site.maps}>Open Google profile</a></p>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="wrap">
+        <p class="kicker">Projects</p>
+        <h2>Photos of the work</h2>
+        <p class="subhead">Real photos from the Google Business Profile and the company’s own gallery. No stock shots of someone else’s van.</p>
+        <div class="gallery" style="margin-top: 1.2rem;">
+          {preview.map((photo) => (
+            <figure class="shot">
+              <img src={photo.src} width={photo.width} height={photo.height} alt={photo.alt} loading="lazy" />
+              <figcaption><strong>{photo.source}</strong>{photo.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <p style="margin-top: 1.2rem;"><a class="btn" href="/projects">See the full gallery</a></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <p class="kicker">Areas</p>
+        <h2>Towns we cover</h2>
+        <p class="subhead">The company says it covers Bedfordshire. These pages are the main towns. The full list is on the areas page.</p>
+        <div class="grid-4" style="margin-top: 1.2rem;">
+          {areas.map((area) => (
+            <article class="card">
+              <h3>{area.name}</h3>
+              <p>{area.nearby.slice(0, 3).join(", ")} and nearby.</p>
+              <a class="more" href={`/areas/${area.slug}`}>Work in {area.name}</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="wrap prose">
+        <p class="kicker">Questions</p>
+        <h2>Straight answers</h2>
+        <FaqList items={homeFaqs} />
+      </div>
+    </section>
+    <Cta />
+  </main>
+</Base>

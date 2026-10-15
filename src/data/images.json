@@ -1,0 +1,342 @@
+[
+  {
+    "id": "g01",
+    "src": "/media/google/g01.webp",
+    "width": 1400,
+    "height": 1050,
+    "tag": "electrical",
+    "caption": "Consumer unit with RCBOs, surge protection and labelled circuits.",
+    "alt": "Inside a consumer unit: RCBOs, a surge protector and labelled circuit cables.",
+    "source": "Google Business Profile"
+  },
+  {
+    "id": "g02",
+    "src": "/media/google/g02.webp",
+    "width": 1200,
+    "height": 1600,
+    "tag": "bathrooms",
+    "caption": "Finished bathroom with a bath, shower screen and a heated towel rail.",
+    "alt": "Bathroom with marble-effect tiles, a bath, shower screen and chrome towel rail.",
+    "source": "Google Business Profile"
+  },
+  {
+    "id": "g03",
+    "src": "/media/google/g03.webp",
+    "width": 1200,
+    "height": 1600,
+    "tag": "gas",
+    "caption": "A bank of domestic gas meters and the pipework feeding them.",
+    "alt": "Wall of domestic gas meters with copper and steel pipework.",
+    "source": "Google Business Profile"
+  },
+  {
+    "id": "g04",
+    "src": "/media/google/g04.webp",
+    "width": 1200,
+    "height": 1600,
+    "tag": "heat-pumps",
+    "caption": "Vaillant aroTHERM plus units. This Google photo is a product display, not a finished home install.",
+    "alt": "Two Vaillant aroTHERM plus heat pump units on a showroom floor.",
+    "source": "Google Business Profile"
+  },
+  {
+    "id": "g05",
+    "src": "/media/google/g05.webp",
+    "width": 1200,
+    "height": 1600,
+    "tag": "heating",
+    "caption": "Insulated pipework, a pump and zone valves under a boiler.",
+    "alt": "Lagged heating pipes, a circulating pump and motorised valves.",
+    "source": "Google Business Profile"
+  },
+  {
+    "id": "g06",
+    "src": "/media/google/g06.webp",
+    "width": 1200,
+    "height": 1600,
+    "tag": "electrical",
+    "caption": "A new consumer unit and meter tails in a cupboard.",
+    "alt": "White consumer unit mounted on a backboard with meter tails dropping out.",
+    "source": "Google Business Profile"
+  },
+  {
+    "id": "g07",
+    "src": "/media/google/g07.webp",
+    "width": 1200,
+    "height": 1600,
+    "tag": "bathrooms",
+    "caption": "Bathroom with a pedestal basin, close-coupled toilet and a bath.",
+    "alt": "Pedestal basin, toilet and bath against marble-effect wall tiles.",
+    "source": "Google Business Profile"
+  },
+  {
+    "id": "g08",
+    "src": "/media/google/g08.webp",
+    "width": 1200,
+    "height": 1600,
+    "tag": "heating",
+    "caption": "Vaillant boiler, expansion vessel, underfloor manifold and an unvented cylinder.",
+    "alt": "Vaillant boiler beside an unvented cylinder and an underfloor heating manifold.",
+    "source": "Google Business Profile"
+  },
+  {
+    "id": "g09",
+    "src": "/media/google/g09.webp",
+    "width": 1200,
+    "height": 1600,
+    "tag": "electrical",
+    "caption": "Electricity meter, a metal enclosure and a rotary isolator.",
+    "alt": "Meter cupboard with a grey enclosure and a red-and-yellow isolator switch.",
+    "source": "Google Business Profile"
+  },
+  {
+    "id": "g10",
+    "src": "/media/google/g10.webp",
+    "width": 1200,
+    "height": 1600,
+    "tag": "electrical",
+    "caption": "Rotary isolator fitted beside the electrical gear.",
+    "alt": "Close view of a rotary isolator switch in a meter cupboard.",
+    "source": "Google Business Profile"
+  },
+  {
+    "id": "w01",
+    "src": "/media/work/w01.webp",
+    "width": 768,
+    "height": 1024,
+    "tag": "heating",
+    "caption": "Vaillant boiler and an unvented cylinder, with the copper pipework still on show.",
+    "alt": "Vaillant boiler next to a tall unvented hot water cylinder.",
+    "source": "Company gallery"
+  },
+  {
+    "id": "w03",
+    "src": "/media/work/w03.webp",
+    "width": 768,
+    "height": 1024,
+    "tag": "heating",
+    "caption": "Ideal boiler and cylinder in an outside cupboard.",
+    "alt": "Ideal boiler and hot water cylinder installed in an external cupboard.",
+    "source": "Company gallery"
+  },
+  {
+    "id": "w04",
+    "src": "/media/work/w04.webp",
+    "width": 768,
+    "height": 1024,
+    "tag": "heating",
+    "caption": "A wider view of the same cupboard, with the cylinder and expansion vessel.",
+    "alt": "Wider view of a boiler and cylinder install in an outside cupboard.",
+    "source": "Company gallery"
+  },
+  {
+    "id": "w05",
+    "src": "/media/work/w05.webp",
+    "width": 768,
+    "height": 1024,
+    "tag": "heating",
+    "caption": "Copper heating pipework, filters and a red expansion vessel in a plant room.",
+    "alt": "Copper pipework, magnetic filters and a red expansion vessel on a brick wall.",
+    "source": "Company gallery"
+  },
+  {
+    "id": "w06",
+    "src": "/media/work/w06.webp",
+    "width": 768,
+    "height": 1024,
+    "tag": "heating",
+    "caption": "Zone valves and copper drops on a new heating system.",
+    "alt": "Row of motorised zone valves on copper heating pipes.",
+    "source": "Company gallery"
+  },
+  {
+    "id": "w07",
+    "src": "/media/work/w07.webp",
+    "width": 768,
+    "height": 1024,
+    "tag": "heating",
+    "caption": "Cylinder, expansion vessel and manifold in a plant room.",
+    "alt": "Unvented cylinder and heating manifold in a timber plant room.",
+    "source": "Company gallery"
+  },
+  {
+    "id": "w09",
+    "src": "/media/work/w09.webp",
+    "width": 768,
+    "height": 1024,
+    "tag": "heating",
+    "caption": "Vaillant boiler, cylinder and an underfloor manifold in a utility room.",
+    "alt": "Utility room with a Vaillant boiler, cylinder and underfloor manifold.",
+    "source": "Company gallery"
+  },
+  {
+    "id": "w10",
+    "src": "/media/work/w10.webp",
+    "width": 768,
+    "height": 1024,
+    "tag": "heating",
+    "caption": "Unvented cylinder and an underfloor heating manifold.",
+    "alt": "Tall white cylinder beside a multi-port underfloor heating manifold.",
+    "source": "Company gallery"
+  },
+  {
+    "id": "w11",
+    "src": "/media/work/w11.webp",
+    "width": 768,
+    "height": 1024,
+    "tag": "bathrooms",
+    "caption": "Loft bathroom with a shower, basin and toilet.",
+    "alt": "Loft bathroom with grey tiles, a shower, basin unit and toilet.",
+    "source": "Company gallery"
+  },
+  {
+    "id": "w12",
+    "src": "/media/work/w12.webp",
+    "width": 768,
+    "height": 1024,
+    "tag": "bathrooms",
+    "caption": "Thermostatic shower in a marble-effect enclosure.",
+    "alt": "Chrome thermostatic shower bar on marble-effect tiles.",
+    "source": "Company gallery"
+  },
+  {
+    "id": "w13",
+    "src": "/media/work/w13.webp",
+    "width": 768,
+    "height": 1024,
+    "tag": "bathrooms",
+    "caption": "Shower enclosure and basin in the loft bathroom.",
+    "alt": "Glass shower enclosure next to a white basin unit.",
+    "source": "Company gallery"
+  },
+  {
+    "id": "w14",
+    "src": "/media/work/w14.webp",
+    "width": 768,
+    "height": 1024,
+    "tag": "bathrooms",
+    "caption": "Toilet and a roof window in the loft bathroom.",
+    "alt": "Close-coupled toilet under a roof window in a loft bathroom.",
+    "source": "Company gallery"
+  },
+  {
+    "id": "w15",
+    "src": "/media/work/w15.webp",
+    "width": 768,
+    "height": 1024,
+    "tag": "bathrooms",
+    "caption": "A wider view of the same loft bathroom.",
+    "alt": "Loft bathroom seen from the doorway, with shower, basin and toilet.",
+    "source": "Company gallery"
+  },
+  {
+    "id": "w16",
+    "src": "/media/work/w16.webp",
+    "width": 768,
+    "height": 1024,
+    "tag": "heating",
+    "caption": "A horizontal radiator on first-fix pipes.",
+    "alt": "White panel radiator fitted to copper pipes before the walls are finished.",
+    "source": "Company gallery"
+  },
+  {
+    "id": "w17",
+    "src": "/media/work/w17.webp",
+    "width": 768,
+    "height": 1024,
+    "tag": "heating",
+    "caption": "A Heatmiser room thermostat next to a light switch.",
+    "alt": "Heatmiser thermostat showing 16.2 degrees on a white wall.",
+    "source": "Company gallery"
+  },
+  {
+    "id": "w18",
+    "src": "/media/work/w18.webp",
+    "width": 768,
+    "height": 1024,
+    "tag": "bathrooms",
+    "caption": "Toilet and basin in the loft bathroom.",
+    "alt": "Toilet and basin unit in a grey-tiled loft bathroom.",
+    "source": "Company gallery"
+  },
+  {
+    "id": "w19",
+    "src": "/media/work/w19.webp",
+    "width": 768,
+    "height": 1024,
+    "tag": "electrical",
+    "caption": "A shaver socket above a bathroom basin.",
+    "alt": "Chrome shaver socket on grey bathroom tiles above a basin.",
+    "source": "Company gallery"
+  },
+  {
+    "id": "w20",
+    "src": "/media/work/w20.webp",
+    "width": 768,
+    "height": 1024,
+    "tag": "bathrooms",
+    "caption": "Rain head and handset in the shower.",
+    "alt": "Square rain shower and a handset on a chrome rail.",
+    "source": "Company gallery"
+  },
+  {
+    "id": "w21",
+    "src": "/media/work/w21.webp",
+    "width": 768,
+    "height": 1024,
+    "tag": "bathrooms",
+    "caption": "Glass shower screen and tray.",
+    "alt": "Sliding glass shower screen on a white tray.",
+    "source": "Company gallery"
+  },
+  {
+    "id": "w22",
+    "src": "/media/work/w22.webp",
+    "width": 768,
+    "height": 1024,
+    "tag": "bathrooms",
+    "caption": "Wall-hung toilet beside the shower.",
+    "alt": "Wall-hung toilet next to a glass shower.",
+    "source": "Company gallery"
+  },
+  {
+    "id": "w23",
+    "src": "/media/work/w23.webp",
+    "width": 768,
+    "height": 1024,
+    "tag": "heating",
+    "caption": "UK Cylinders unvented vessel and an underfloor manifold.",
+    "alt": "Galvanised unvented cylinder beside an underfloor heating manifold.",
+    "source": "Company gallery"
+  },
+  {
+    "id": "w24",
+    "src": "/media/work/w24.webp",
+    "width": 768,
+    "height": 1024,
+    "tag": "heating",
+    "caption": "Vaillant boiler, a UK Cylinders vessel and a water softener.",
+    "alt": "Vaillant boiler next to a galvanised cylinder and a water softener.",
+    "source": "Company gallery"
+  },
+  {
+    "id": "w25",
+    "src": "/media/work/w25.webp",
+    "width": 768,
+    "height": 1024,
+    "tag": "heating",
+    "caption": "Boiler casing off during a replacement, in the same kitchen as the finished Vaillant.",
+    "alt": "Old boiler with the front cover removed during a kitchen replacement.",
+    "source": "Company gallery"
+  },
+  {
+    "id": "w26",
+    "src": "/media/work/w26.webp",
+    "width": 768,
+    "height": 1024,
+    "tag": "heating",
+    "caption": "New Vaillant boiler fitted in that kitchen.",
+    "alt": "New Vaillant boiler on a kitchen wall with copper pipework above it.",
+    "source": "Company gallery"
+  }
+]

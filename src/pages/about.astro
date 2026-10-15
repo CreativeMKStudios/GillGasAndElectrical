@@ -1,0 +1,81 @@
+---
+import Base from "../layouts/Base.astro";
+import Cta from "../components/Cta.astro";
+import { site, hours } from "../data/site";
+
+const schema = {
+  "@type": "AboutPage",
+  name: "About Gill Gas and Electrical Ltd",
+  url: `${site.url}/about`,
+  mainEntity: { "@id": `${site.url}/#business` },
+};
+---
+
+<Base
+  title="About Gill Gas and Electrical Ltd | Bedford"
+  description="Gill Gas and Electrical Ltd is a Bedford gas, heating and electrical company. Registered at 4 Aviation Way, Shortstown, MK42 0HU. Company number 14391379."
+  path="/about"
+  schema={schema}
+>
+  <main id="main">
+    <header class="page-hero">
+      <div class="wrap">
+        <p class="crumbs"><a href="/">Home</a> <span>/</span> About</p>
+        <h1>About us</h1>
+        <p class="lede">A limited company in Shortstown, doing gas, heating, bathrooms and electrics across Bedford and Bedfordshire.</p>
+      </div>
+    </header>
+    <section class="section">
+      <div class="wrap grid-2">
+        <div class="prose">
+          <p>
+            Gill Gas and Electrical Ltd is the registered name. Customers and reviews often say Gill, or Mr Gill.
+            Companies House lists the director as {site.director}, appointed on {site.directorAppointed}.
+          </p>
+          <p>
+            The company was incorporated on {site.incorporated}. From that date until {site.previousNameUntil} the name on the register was {site.previousName}.
+            An older Google review still uses the TSG name. It is the same business.
+          </p>
+          <p>
+            The company’s own site says the engineer has more than 12 years in the trade, and that the work covers domestic and commercial plumbing, heating and electrics.
+            That 12-year figure is the company’s, not a number we counted from invoices.
+          </p>
+          <p>
+            Gas work is described as Gas Safe registered. Electrical work is described as NAPIT-approved.
+            Ask to see both before a job starts. Check Gas Safe at <a href={site.gasSafeCheck}>gassaferegister.co.uk</a> and NAPIT at <a href={site.napit}>napit.org.uk</a>.
+            We have not printed ID numbers on this site, because those numbers were not on the public pages we checked.
+          </p>
+          <p>
+            For heat pumps, Gill Gas and Electrical Ltd, {site.postcode}, is on the Renewable Energy Consumer Code member list.
+            You can look the name up on the <a href={site.recc}>RECC member pages</a>.
+          </p>
+          <h2>How a job runs</h2>
+          <ol>
+            <li>You call or send the details, including the postcode.</li>
+            <li>We say if we can take the job, and give a free quote for planned work.</li>
+            <li>You book a time inside the published hours.</li>
+            <li>The work is done, and you get the paperwork that job needs. A boiler install, a landlord gas record and an electrical report are different papers.</li>
+          </ol>
+          <p>
+            If you smell gas, do not wait for a callback. Leave the building and call the National Gas Emergency Service on {site.gasEmergency}.
+          </p>
+        </div>
+        <div>
+          <figure class="split-photo">
+            <img src="/media/google/g03.webp" width="1200" height="1600" alt="Bank of domestic gas meters and pipework" />
+          </figure>
+          <h2 style="margin-top: 1.4rem;">Opening hours</h2>
+          <p>Taken from the Google profile.</p>
+          <table class="hours">
+            <tbody>
+              {hours.map((slot) => (
+                <tr><th scope="row">{slot.day}</th><td>{slot.label}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <Cta title="Talk to us about the job" />
+  </main>
+</Base>

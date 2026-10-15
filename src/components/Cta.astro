@@ -1,0 +1,13 @@
+---
+import { site } from "../data/site";
+interface Props { title?: string; text?: string; }
+const { title = "Get a free quote", text = "Call, email, or send the job details. We will tell you if we can take it, and what it will cost, before any work is booked." } = Astro.props;
+---
+<section class="cta-band">
+  <div class="wrap">
+    <h2>{title}</h2>
+    <p>{text}</p>
+    <a class="btn" href={`tel:${site.phoneTel}`}>Call {site.phoneDisplay}</a>
+    <a class="btn btn-ghost" href="/contact">Send a message</a>
+  </div>
+</section>
