@@ -1,0 +1,55 @@
+---
+import Base from "../layouts/Base.astro";
+import Cta from "../components/Cta.astro";
+import { photos, photoTags, site } from "../data/site";
+
+const googleCount = photos.filter((photo) => photo.source === "Google Business Profile").length;
+const schema = {
+  "@type": "CollectionPage",
+  name: "Project photos",
+  url: `${site.url}/projects`,
+  about: { "@id": `${site.url}/#business` },
+};
+---
+
+<Base
+  title="Heating and Electrical Project Photos | Bedford"
+  description="Job photos from the Gill Gas and Electrical Google profile and the company gallery. Boilers, cylinders, bathrooms, gas meters and consumer units in Bedford."
+  path="/projects"
+  schema={schema}
+>
+  <main id="main">
+    <header class="page-hero">
+      <div class="wrap">
+        <p class="crumbs"><a href="/">Home</a> <span>/</span> Projects</p>
+        <h1>Projects</h1>
+        <p class="lede">
+          Google lists 29 photos on the company profile. {googleCount} of them load without a Google login, and those are here.
+          The rest of the gallery is from the company’s own job photos.
+          Captions say what is in the picture. Street names and client names are not added, because they were not published.
+        </p>
+      </div>
+    </header>
+    <section class="section">
+      <div class="wrap">
+        <div class="filters" role="group" aria-label="Filter photos">
+          {photoTags.map((tag, index) => (
+            <button type="button" data-filter={tag.id} aria-pressed={index === 0 ? "true" : "false"}>{tag.label}</button>
+          ))}
+        </div>
+        <div class="gallery">
+          {photos.map((photo) => (
+            <figure class="shot" data-shot={photo.tag}>
+              <img src={photo.src} width={photo.width} height={photo.height} alt={photo.alt} loading="lazy" decoding="async" />
+              <figcaption>
+                <strong>{photo.source}</strong>
+                {photo.caption}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+    <Cta title="Want this kind of work at your place?" />
+  </main>
+</Base>

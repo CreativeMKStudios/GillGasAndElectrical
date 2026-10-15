@@ -1,0 +1,13 @@
+---
+import type { Review } from "../data/reviews";
+interface Props { review: Review; }
+const { review } = Astro.props;
+const stars = "★★★★★".slice(0, review.rating) + "☆☆☆☆☆".slice(review.rating);
+---
+<article class="review">
+  <div class="stars" aria-label={`${review.rating} out of 5 stars`}>{stars}</div>
+  <p>{review.text}</p>
+  {review.note && <p class="note">{review.note}</p>}
+  {review.reply && <p class="reply"><strong>Reply from the owner:</strong> {review.reply}</p>}
+  <footer>{review.author} · {review.when} · {review.source}</footer>
+</article>

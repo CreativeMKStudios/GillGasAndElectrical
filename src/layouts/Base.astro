@@ -1,0 +1,200 @@
+---
+import "@fontsource/barlow-condensed/600.css";
+import "@fontsource/barlow-condensed/700.css";
+import "@fontsource/barlow-condensed/800.css";
+import "@fontsource/source-sans-3/400.css";
+import "@fontsource/source-sans-3/600.css";
+import "@fontsource/source-sans-3/700.css";
+import "../styles/global.css";
+import { site, hours, businessSchema, absolute } from "../data/site";
+import { services } from "../data/services";
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  image?: string;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+  preloadImage?: string;
+  robots?: string;
+  showCallBar?: boolean;
+}
+
+const { title, description, path, image = site.ogImage, schema = [], preloadImage, robots = "index, follow, max-image-preview:large", showCallBar = true } = Astro.props;
+const canonical = new URL(path, site.url).toString();
+const extra = Array.isArray(schema) ? schema : [schema];
+const graph = [
+  {
+    "@type": "WebSite",
+    "@id": `${site.url}/#website`,
+    url: site.url,
+    name: site.name,
+    publisher: { "@id": `${site.url}/#business` },
+    inLanguage: "en-GB",
+  },
+  businessSchema,
+  ...extra,
+];
+const json = JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replace(/</g, "\\u003c");
+const current = Astro.url.pathname.replace(/\/$/, "") || "/";
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/reviews", label: "Reviews" },
+  { href: "/areas", label: "Areas" },
+  { href: "/projects", label: "Projects" },
+  { href: "/contact", label: "Contact" },
+];
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content={robots} />
+    <meta name="theme-color" content="#0c0c0e" />
+    <meta name="geo.region" content="GB-BDF" />
+    <meta name="geo.placename" content="Bedford" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={absolute(image)} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={absolute(image)} />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
+    <script type="application/ld+json" set:html={json} />
+  </head>
+  <body class={showCallBar ? undefined : "no-call-bar"}>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="topbar">
+      <div class="wrap">
+        <span>Company no. {site.companyNumber} · Gas and electrical · Bedford &amp; Bedfordshire</span>
+        <span class="top-links">
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <span class="hide-sm">Mon–Fri 8am–7pm · Sat 9am–4pm</span>
+        </span>
+      </div>
+    </div>
+    <header class="site-header">
+      <div class="wrap header-row">
+        <a class="logo" href="/" aria-label="Gill Gas and Electrical home">
+          <img src="/brand/logo.png" width="549" height="400" alt="Gill Gas and Electrical" />
+        </a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+          <span></span>
+          <span class="sr-only">Menu</span>
+        </button>
+        <nav id="site-nav" class="nav" data-nav aria-label="Main">
+          <a href="/" aria-current={current === "/" ? "page" : undefined}>Home</a>
+          <details>
+            <summary>Services</summary>
+            <ul>
+              <li><a href="/services" aria-current={current === "/services" ? "page" : undefined}>All services</a></li>
+              {services.map((item) => (
+                <li>
+                  <a href={`/services/${item.slug}`} aria-current={current === `/services/${item.slug}` ? "page" : undefined}>{item.menu}</a>
+                </li>
+              ))}
+            </ul>
+          </details>
+          {links.slice(1).map((item) => (
+            <a href={item.href} aria-current={current === item.href ? "page" : undefined}>{item.label}</a>
+          ))}
+        </nav>
+        <div class="header-cta">
+          <a class="phone-link" href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a>
+          <a class="btn btn-small" href="/contact">Free quote</a>
+        </div>
+      </div>
+    </header>
+    <slot />
+    <footer class="site-footer">
+      <div class="wrap footer-grid">
+        <div>
+          <h2>Gill Gas &amp; Electrical</h2>
+          <p>
+            {site.street}<br />
+            {site.locality}, {site.town}<br />
+            {site.postcode}
+          </p>
+          <p>
+            <a href={`tel:${site.phoneTel}`}>{site.phoneDisplay}</a><br />
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+          </p>
+          <p>Plus code {site.plusCode}</p>
+        </div>
+        <div>
+          <h2>Services</h2>
+          <ul>
+            {services.map((item) => (
+              <li><a href={`/services/${item.slug}`}>{item.name}</a></li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2>Company</h2>
+          <ul>
+            <li><a href="/about">About us</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/reviews">Reviews</a></li>
+            <li><a href="/areas">Areas</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Hours</h2>
+          <table class="hours">
+            <tbody>
+              {hours.map((slot) => (
+                <tr>
+                  <th scope="row">{slot.day}</th>
+                  <td>{slot.label}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="wrap legal">
+        <p>
+          {site.legalName}. Company number {site.companyNumber}. Registered office {site.street}, {site.locality}, {site.town}, {site.postcode}.
+          Director {site.director}. Incorporated {site.incorporated}. Previously {site.previousName} until {site.previousNameUntil}.
+        </p>
+        <p>
+          Details checked against Companies House, the company website and the Google profile on {site.checked}.
+          <a href={site.maps}>Google profile</a> · <a href={site.companiesHouse}>Companies House</a>
+        </p>
+      </div>
+    </footer>
+    <div class="mobile-bar">
+      <a class="btn" href={`tel:${site.phoneTel}`}>Call</a>
+      <a class="btn btn-ghost" href="/contact">Free quote</a>
+    </div>
+    <script src="/site.js" defer></script>
+    <style>
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
+    </style>
+  </body>
+</html>

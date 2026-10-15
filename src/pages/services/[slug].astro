@@ -1,0 +1,85 @@
+---
+import Base from "../../layouts/Base.astro";
+import Cta from "../../components/Cta.astro";
+import FaqList from "../../components/FaqList.astro";
+import { services } from "../../data/services";
+import { site } from "../../data/site";
+
+export function getStaticPaths() {
+  return services.map((service) => ({ params: { slug: service.slug }, props: { service } }));
+}
+
+const { service } = Astro.props;
+const others = services.filter((item) => item.slug !== service.slug).slice(0, 3);
+const schema = [
+  {
+    "@type": "Service",
+    name: service.name,
+    serviceType: service.name,
+    description: service.description,
+    url: `${site.url}/services/${service.slug}`,
+    areaServed: ["Bedford", "Bedfordshire"],
+    provider: { "@id": `${site.url}/#business` },
+  },
+  {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+      { "@type": "ListItem", position: 2, name: "Services", item: `${site.url}/services` },
+      { "@type": "ListItem", position: 3, name: service.name, item: `${site.url}/services/${service.slug}` },
+    ],
+  },
+  {
+    "@type": "FAQPage",
+    mainEntity: service.faqs.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  },
+];
+---
+
+<Base title={`${service.title} | Gill Gas`} description={service.description} path={`/services/${service.slug}`} schema={schema}>
+  <main id="main">
+    <header class="page-hero">
+      <div class="wrap">
+        <p class="crumbs"><a href="/">Home</a> <span>/</span> <a href="/services">Services</a> <span>/</span> {service.name}</p>
+        <h1>{service.h1}</h1>
+        <p class="lede">{service.lede}</p>
+      </div>
+    </header>
+    <section class="section">
+      <div class="wrap grid-2">
+        <div class="prose">
+          {service.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          <h2>What the visit covers</h2>
+          <ul class="check">
+            {service.includes.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <aside>
+          <div class="card">
+            <h2>Book this job</h2>
+            <p>Free quote for planned work. Call {site.phoneDisplay} or send the postcode and a short note.</p>
+            <a class="btn" href="/contact">Request a quote</a>
+            <p style="margin-top: 1rem;"><a href={`tel:${site.phoneTel}`}>Or call now</a></p>
+          </div>
+          <div class="card" style="margin-top: 1rem;">
+            <h2>Other services</h2>
+            <ul>
+              {others.map((item) => <li><a href={`/services/${item.slug}`}>{item.name}</a></li>)}
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="wrap prose">
+        <h2>Questions about {service.name.toLowerCase()}</h2>
+        <FaqList items={service.faqs} />
+      </div>
+    </section>
+    <Cta />
+  </main>
+</Base>

@@ -1,0 +1,46 @@
+---
+import Base from "../../layouts/Base.astro";
+import Cta from "../../components/Cta.astro";
+import { services } from "../../data/services";
+import { site } from "../../data/site";
+
+const schema = {
+  "@type": "ItemList",
+  name: "Services",
+  itemListElement: services.map((service, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: service.name,
+    url: `${site.url}/services/${service.slug}`,
+  })),
+};
+---
+
+<Base
+  title="Gas, Heating and Electrical Services in Bedford"
+  description="Boiler installs, servicing, central heating, landlord gas checks, heat pumps, bathrooms and electrical work in Bedford. Gill Gas and Electrical Ltd."
+  path="/services"
+  schema={schema}
+>
+  <main id="main">
+    <header class="page-hero">
+      <div class="wrap">
+        <p class="crumbs"><a href="/">Home</a> <span>/</span> Services</p>
+        <h1>Services</h1>
+        <p class="lede">The list below is the work the company publishes: gas, heating, bathrooms and electrics. Each page says what is included and what we will not guess at.</p>
+      </div>
+    </header>
+    <section class="section">
+      <div class="wrap grid-2">
+        {services.map((service) => (
+          <article class="card">
+            <h2>{service.name}</h2>
+            <p>{service.lede}</p>
+            <a class="more" href={`/services/${service.slug}`}>Read about {service.name.toLowerCase()}</a>
+          </article>
+        ))}
+      </div>
+    </section>
+    <Cta />
+  </main>
+</Base>

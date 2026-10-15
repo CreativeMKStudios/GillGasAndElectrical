@@ -1,0 +1,55 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../data/site";
+---
+
+<Base
+  title="Privacy | Gill Gas and Electrical Ltd"
+  description="How Gill Gas and Electrical Ltd handles your name, phone number and email when you ask for a quote. No cookies and no analytics on this site."
+  path="/privacy"
+>
+  <main id="main">
+    <header class="page-hero">
+      <div class="wrap">
+        <p class="crumbs"><a href="/">Home</a> <span>/</span> Privacy</p>
+        <h1>Privacy</h1>
+        <p class="lede">This page says what happens to your details. It is written for customers, not for a legal template.</p>
+      </div>
+    </header>
+    <section class="section">
+      <div class="wrap prose">
+        <p>
+          The data controller is {site.legalName}, company number {site.companyNumber}, {site.street}, {site.locality}, {site.town}, {site.postcode}.
+          Email {site.email} or call {site.phoneDisplay}.
+        </p>
+        <h2>What this website collects</h2>
+        <p>
+          The site does not use analytics, advertising cookies, or a contact database.
+          The quote form does not post your message to a server. It opens an email to {site.email} on your own device.
+          If you send that email, we receive whatever you typed: usually your name, phone number, email, postcode and a note about the job.
+        </p>
+        <h2>Why we keep it</h2>
+        <p>
+          We use those details to reply, to quote, and to do the work if you book it. The legal basis is steps before a contract, and then the contract itself.
+          We do not sell the list. We do not add you to a newsletter.
+        </p>
+        <h2>How long</h2>
+        <p>
+          Quote emails are kept long enough to answer you and, if you become a customer, for the invoices and the gas or electrical certificates the job needs.
+          Landlord gas records and electrical certificates have their own retention rules. Ask if you want a copy of what we hold about a job.
+        </p>
+        <h2>Your rights</h2>
+        <p>
+          You can ask for a copy of your details, ask us to correct them, or ask us to delete them where the law allows.
+          You can also complain to the Information Commissioner’s Office at ico.org.uk.
+        </p>
+        <h2>Other sites</h2>
+        <p>
+          Links to Google Maps, Companies House, the Gas Safe Register, NAPIT and the Renewable Energy Consumer Code leave this site.
+          Those sites have their own privacy notices. We do not control them.
+        </p>
+        <p>This notice was written on {site.checked}.</p>
+      </div>
+    </section>
+  </main>
+</Base>

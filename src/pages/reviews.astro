@@ -1,0 +1,46 @@
+---
+import Base from "../layouts/Base.astro";
+import Cta from "../components/Cta.astro";
+import ReviewCard from "../components/ReviewCard.astro";
+import { googleReviews, websiteComments } from "../data/reviews";
+import { site } from "../data/site";
+---
+
+<Base
+  title="Google Reviews | Gill Gas and Electrical Bedford"
+  description="Google rating 4.9 from 19 reviews for Gill Gas and Electrical Ltd in Bedford. Read the reviews we could verify, including the owner’s replies."
+  path="/reviews"
+>
+  <main id="main">
+    <header class="page-hero">
+      <div class="wrap">
+        <p class="crumbs"><a href="/">Home</a> <span>/</span> Reviews</p>
+        <h1>Reviews</h1>
+        <p class="lede">
+          On {site.checked} the Google profile showed {site.googleRating} from {site.googleReviewCount} reviews.
+          Five of them can be read in full without a Google login. Older review text from the same listing is included under those, with the date it was published.
+          The live list is on Google.
+        </p>
+        <p><a class="btn" href={site.maps}>Read them on Google</a></p>
+      </div>
+    </header>
+    <section class="section">
+      <div class="wrap">
+        <h2>From the Google profile</h2>
+        <div class="grid-2" style="margin-top: 1rem;">
+          {googleReviews.map((review) => <ReviewCard review={review} />)}
+        </div>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="wrap">
+        <h2>Comments on the previous website</h2>
+        <p class="subhead">These were published on gillgasandelectrical.co.uk. They are not the same set as the Google reviews, and some have a postcode instead of a name.</p>
+        <div class="grid-2" style="margin-top: 1rem;">
+          {websiteComments.map((review) => <ReviewCard review={review} />)}
+        </div>
+      </div>
+    </section>
+    <Cta />
+  </main>
+</Base>
